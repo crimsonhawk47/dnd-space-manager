@@ -9,20 +9,18 @@ export const CharacterProvider = (props) => {
 
     const [characterStats, setCharacterStats] = useState({})
 
-    useEffect(async () => {
+    const getCharacter = async () => {
         try {
             const response = await axios.get('/api/character')
             setCharacterStats(response.data)
-
-
         } catch (err) {
             console.log(err);
         }
-    }, [])
+    }
 
     return (
         <CharacterContext.Provider
-            value={characterStats}>
+            value={{characterStats, getCharacter}}>
             {props.children}
         </CharacterContext.Provider>
     )
