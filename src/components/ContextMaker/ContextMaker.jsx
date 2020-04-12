@@ -18,8 +18,8 @@ export const CharacterProvider = (props) => {
 
     const [characterStats, setCharacterStats] = useState({})
 
-    // useEffect(() => {
-    //     alert(characterStats.strength)
+    // useEffect(asyc () => {
+    //     await axios.get('/api/character')
     // }, [])
     return (
         <CharacterContext.Provider
