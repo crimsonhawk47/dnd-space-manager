@@ -8,6 +8,10 @@ const CharacterPage = () => {
     const char = React.useContext(CharacterContext)
 
     return (
+        <>
+        <Grid container justify='center'>
+            <h1>{char.name}</h1>
+        </Grid>
         <Grid container>
             <Grid item xs={3}>
                 <StatBlock name='Strength' score={char.strength} />
@@ -21,6 +25,7 @@ const CharacterPage = () => {
 
             </Grid>
         </Grid>
+        </>
     )
 }
 

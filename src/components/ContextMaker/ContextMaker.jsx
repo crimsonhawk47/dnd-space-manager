@@ -1,16 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const CharacterContext = React.createContext()
-
-const char = {
-    strength: 12,
-    dexterity: 16,
-    constitution: 10,
-    intelligence: 8,
-    wisdom: 14,
-    charisma: 13
-}
 
 // export const CharacterProvider = CharacterContext.Provider
 
@@ -18,12 +9,20 @@ export const CharacterProvider = (props) => {
 
     const [characterStats, setCharacterStats] = useState({})
 
-    // useEffect(asyc () => {
-    //     await axios.get('/api/character')
-    // }, [])
+    useEffect(async () => {
+        try {
+            const response = await axios.get('/api/character')
+            setCharacterStats(response.data)
+
+
+        } catch (err) {
+            console.log(err);
+        }
+    }, [])
+
     return (
         <CharacterContext.Provider
-            value={char}>
+            value={characterStats}>
             {props.children}
         </CharacterContext.Provider>
     )
