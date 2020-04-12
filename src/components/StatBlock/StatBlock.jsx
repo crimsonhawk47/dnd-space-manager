@@ -1,9 +1,15 @@
 import React from 'react'
+import {Typography, Card, CardContent, CardActions} from '@material-ui/core'
 
 
 const StatBlock = (props) => {
-    return(
-    <p>This is a stat block for {props.name}</p>
+    return (
+        <Card>
+            <CardContent>
+                <Typography>{props.name}</Typography>
+                <Typography>{props.score}</Typography>
+            </CardContent>
+        </Card>
     )
 }
 
