@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 
 const CharacterContext = React.createContext()
 
@@ -14,6 +15,12 @@ const char = {
 // export const CharacterProvider = CharacterContext.Provider
 
 export const CharacterProvider = (props) => {
+
+    const [characterStats, setCharacterStats] = useState({})
+
+    // useEffect(() => {
+    //     alert(characterStats.strength)
+    // }, [])
     return (
         <CharacterContext.Provider
             value={char}>
@@ -21,6 +28,8 @@ export const CharacterProvider = (props) => {
         </CharacterContext.Provider>
     )
 }
+
+
 
 export const CharacterConsumer = CharacterContext.Consumer
 
