@@ -7,7 +7,8 @@ const StatBlock = (props) => {
         <Card>
             <CardContent>
                 <Typography>{props.name}</Typography>
-                <Typography>{props.score}</Typography>
+                <Typography>score: {props.score}</Typography>
+                <Typography>mod: {parseInt((props.score-10)/2)}</Typography>
             </CardContent>
         </Card>
     )

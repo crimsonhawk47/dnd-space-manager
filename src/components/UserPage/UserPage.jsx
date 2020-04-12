@@ -1,21 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Grid} from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import LogOutButton from '../LogOutButton/LogOutButton';
 import CharacterPage from '../CharacterPage/CharacterPage'
+import { CharacterProvider } from '../ContextMaker/ContextMaker'
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
+
+
 const UserPage = (props) => (
   <div>
     <h1 id="welcome">
-      Welcome, { props.user.username }!
+      Welcome, {props.user.username}!
     </h1>
     <p>Your ID is: {props.user.id}</p>
     <LogOutButton className="log-in" />
-    <CharacterPage />
-    
+    <CharacterProvider>
+      <CharacterPage />
+    </CharacterProvider>
+
   </div>
 );
 
